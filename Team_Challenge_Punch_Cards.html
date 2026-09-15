@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Official Team Challenge Punch Cards</title>
+<style>
+  @page {
+    size: letter portrait;
+    margin: 0.35in;
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #0f172a;
+    background: #ffffff;
+    font-size: 8.5pt;
+  }
+  .page {
+    width: 100%;
+    min-height: 10.2in;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    page-break-after: always;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+  .card-container {
+    border: 2px dashed #0284c7;
+    border-radius: 12px;
+    padding: 12px 16px;
+    background: #ffffff;
+    height: 4.8in;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+  }
+  .team-title {
+    font-size: 16pt;
+    font-weight: 900;
+    color: #0f3460;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .team-fields {
+    display: flex;
+    gap: 12px;
+    font-size: 8.5pt;
+    margin-bottom: 8px;
+  }
+  .field-box {
+    border-bottom: 1.5px solid #64748b;
+    padding-bottom: 1px;
+    flex: 1;
+    font-weight: 600;
+    color: #334155;
+  }
+  .tier-row {
+    margin-bottom: 6px;
+  }
+  .tier-label {
+    font-size: 8pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bubbles-grid {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 3px;
+  }
+  .bubbles-grid-8 {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+    width: 60%;
+  }
+  .bubble {
+    border: 1.5px solid #cbd5e1;
+    border-radius: 4px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 8pt;
+    color: #334155;
+    background: #f8fafc;
+  }
+  .t1-label { color: #16a34a; }
+  .t1-bubble { border-color: #86efac; color: #15803d; }
+  .t2-label { color: #2563eb; }
+  .t2-bubble { border-color: #93c5fd; color: #1d4ed8; }
+  .t3-label { color: #dc2626; }
+  .t3-bubble { border-color: #fca5a5; color: #b91c1c; }
+  .t4-label { color: #d97706; }
+  .t4-bubble { border-color: #fde68a; color: #b45309; }
+
+  .card-footer {
+    border-top: 1.5px solid #e2e8f0;
+    padding-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8pt;
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 6px 10px;
+  }
+  .cut-guide {
+    text-align: center;
+    font-size: 7.5pt;
+    color: #94a3b8;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 4px 0;
+  }
+  .cut-guide::before, .cut-guide::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+</style>
+</head>
+<body>
+
+<!-- MACRO FOR TEAMS 1 & 2 -->
+<div class="page">
+  <!-- TEAM 1 -->
+  <div class="card-container">
+    <div class="card-header">
+      <div class="team-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/><path d="M4 18 3 9h18l-1 9"/><path d="M12 2v7"/></svg>
+        Team 1 &bull; Challenge Punch Card
+      </div>
+      <div style="background: #0f172a; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 8pt;">TABLE #1</div>
+    </div>
+    <div class="team-fields">
+      <div class="field-box">Boat Name: </div>
+      <div class="field-box">Lead Builder: </div>
+      <div class="field-box">Runners: </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t1-label"><span>Tier 1: Easy Challenges (1 - 15)</span><span>+2 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t1-bubble">1</div><div class="bubble t1-bubble">2</div><div class="bubble t1-bubble">3</div><div class="bubble t1-bubble">4</div><div class="bubble t1-bubble">5</div>
+        <div class="bubble t1-bubble">6</div><div class="bubble t1-bubble">7</div><div class="bubble t1-bubble">8</div><div class="bubble t1-bubble">9</div><div class="bubble t1-bubble">10</div>
+        <div class="bubble t1-bubble">11</div><div class="bubble t1-bubble">12</div><div class="bubble t1-bubble">13</div><div class="bubble t1-bubble">14</div><div class="bubble t1-bubble">15</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t2-label"><span>Tier 2: Medium Challenges (16 - 30)</span><span>+4 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t2-bubble">16</div><div class="bubble t2-bubble">17</div><div class="bubble t2-bubble">18</div><div class="bubble t2-bubble">19</div><div class="bubble t2-bubble">20</div>
+        <div class="bubble t2-bubble">21</div><div class="bubble t2-bubble">22</div><div class="bubble t2-bubble">23</div><div class="bubble t2-bubble">24</div><div class="bubble t2-bubble">25</div>
+        <div class="bubble t2-bubble">26</div><div class="bubble t2-bubble">27</div><div class="bubble t2-bubble">28</div><div class="bubble t2-bubble">29</div><div class="bubble t2-bubble">30</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t3-label"><span>Tier 3: Hard Challenges (31 - 45)</span><span>+6 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t3-bubble">31</div><div class="bubble t3-bubble">32</div><div class="bubble t3-bubble">33</div><div class="bubble t3-bubble">34</div><div class="bubble t3-bubble">35</div>
+        <div class="bubble t3-bubble">36</div><div class="bubble t3-bubble">37</div><div class="bubble t3-bubble">38</div><div class="bubble t3-bubble">39</div><div class="bubble t3-bubble">40</div>
+        <div class="bubble t3-bubble">41</div><div class="bubble t3-bubble">42</div><div class="bubble t3-bubble">43</div><div class="bubble t3-bubble">44</div><div class="bubble t3-bubble">45</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t4-label"><span>Tier 4: Creative & Spirit (46 - 53)</span><span>+5 Chips Each</span></div>
+      <div class="bubbles-grid-8">
+        <div class="bubble t4-bubble">46</div><div class="bubble t4-bubble">47</div><div class="bubble t4-bubble">48</div><div class="bubble t4-bubble">49</div>
+        <div class="bubble t4-bubble">50</div><div class="bubble t4-bubble">51</div><div class="bubble t4-bubble">52</div><div class="bubble t4-bubble">53</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span><strong>Starting:</strong> 20 Chips</span>
+      <span><strong>Earned:</strong> ________ Chips</span>
+      <span><strong>Treats Purchased:</strong> ____</span>
+      <span><strong>Judge Sign-Off:</strong> ________________</span>
+    </div>
+  </div>
+
+  <div class="cut-guide">&#9986; CUT HERE ALONG DOTTED LINE</div>
+
+  <!-- TEAM 2 -->
+  <div class="card-container">
+    <div class="card-header">
+      <div class="team-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/><path d="M4 18 3 9h18l-1 9"/><path d="M12 2v7"/></svg>
+        Team 2 &bull; Challenge Punch Card
+      </div>
+      <div style="background: #0f172a; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 8pt;">TABLE #2</div>
+    </div>
+    <div class="team-fields">
+      <div class="field-box">Boat Name: </div>
+      <div class="field-box">Lead Builder: </div>
+      <div class="field-box">Runners: </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t1-label"><span>Tier 1: Easy Challenges (1 - 15)</span><span>+2 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t1-bubble">1</div><div class="bubble t1-bubble">2</div><div class="bubble t1-bubble">3</div><div class="bubble t1-bubble">4</div><div class="bubble t1-bubble">5</div>
+        <div class="bubble t1-bubble">6</div><div class="bubble t1-bubble">7</div><div class="bubble t1-bubble">8</div><div class="bubble t1-bubble">9</div><div class="bubble t1-bubble">10</div>
+        <div class="bubble t1-bubble">11</div><div class="bubble t1-bubble">12</div><div class="bubble t1-bubble">13</div><div class="bubble t1-bubble">14</div><div class="bubble t1-bubble">15</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t2-label"><span>Tier 2: Medium Challenges (16 - 30)</span><span>+4 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t2-bubble">16</div><div class="bubble t2-bubble">17</div><div class="bubble t2-bubble">18</div><div class="bubble t2-bubble">19</div><div class="bubble t2-bubble">20</div>
+        <div class="bubble t2-bubble">21</div><div class="bubble t2-bubble">22</div><div class="bubble t2-bubble">23</div><div class="bubble t2-bubble">24</div><div class="bubble t2-bubble">25</div>
+        <div class="bubble t2-bubble">26</div><div class="bubble t2-bubble">27</div><div class="bubble t2-bubble">28</div><div class="bubble t2-bubble">29</div><div class="bubble t2-bubble">30</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t3-label"><span>Tier 3: Hard Challenges (31 - 45)</span><span>+6 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t3-bubble">31</div><div class="bubble t3-bubble">32</div><div class="bubble t3-bubble">33</div><div class="bubble t3-bubble">34</div><div class="bubble t3-bubble">35</div>
+        <div class="bubble t3-bubble">36</div><div class="bubble t3-bubble">37</div><div class="bubble t3-bubble">38</div><div class="bubble t3-bubble">39</div><div class="bubble t3-bubble">40</div>
+        <div class="bubble t3-bubble">41</div><div class="bubble t3-bubble">42</div><div class="bubble t3-bubble">43</div><div class="bubble t3-bubble">44</div><div class="bubble t3-bubble">45</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t4-label"><span>Tier 4: Creative & Spirit (46 - 53)</span><span>+5 Chips Each</span></div>
+      <div class="bubbles-grid-8">
+        <div class="bubble t4-bubble">46</div><div class="bubble t4-bubble">47</div><div class="bubble t4-bubble">48</div><div class="bubble t4-bubble">49</div>
+        <div class="bubble t4-bubble">50</div><div class="bubble t4-bubble">51</div><div class="bubble t4-bubble">52</div><div class="bubble t4-bubble">53</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span><strong>Starting:</strong> 20 Chips</span>
+      <span><strong>Earned:</strong> ________ Chips</span>
+      <span><strong>Treats Purchased:</strong> ____</span>
+      <span><strong>Judge Sign-Off:</strong> ________________</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2: TEAMS 3 & 4 -->
+<div class="page">
+  <!-- TEAM 3 -->
+  <div class="card-container">
+    <div class="card-header">
+      <div class="team-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/><path d="M4 18 3 9h18l-1 9"/><path d="M12 2v7"/></svg>
+        Team 3 &bull; Challenge Punch Card
+      </div>
+      <div style="background: #0f172a; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 8pt;">TABLE #3</div>
+    </div>
+    <div class="team-fields">
+      <div class="field-box">Boat Name: </div>
+      <div class="field-box">Lead Builder: </div>
+      <div class="field-box">Runners: </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t1-label"><span>Tier 1: Easy Challenges (1 - 15)</span><span>+2 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t1-bubble">1</div><div class="bubble t1-bubble">2</div><div class="bubble t1-bubble">3</div><div class="bubble t1-bubble">4</div><div class="bubble t1-bubble">5</div>
+        <div class="bubble t1-bubble">6</div><div class="bubble t1-bubble">7</div><div class="bubble t1-bubble">8</div><div class="bubble t1-bubble">9</div><div class="bubble t1-bubble">10</div>
+        <div class="bubble t1-bubble">11</div><div class="bubble t1-bubble">12</div><div class="bubble t1-bubble">13</div><div class="bubble t1-bubble">14</div><div class="bubble t1-bubble">15</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t2-label"><span>Tier 2: Medium Challenges (16 - 30)</span><span>+4 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t2-bubble">16</div><div class="bubble t2-bubble">17</div><div class="bubble t2-bubble">18</div><div class="bubble t2-bubble">19</div><div class="bubble t2-bubble">20</div>
+        <div class="bubble t2-bubble">21</div><div class="bubble t2-bubble">22</div><div class="bubble t2-bubble">23</div><div class="bubble t2-bubble">24</div><div class="bubble t2-bubble">25</div>
+        <div class="bubble t2-bubble">26</div><div class="bubble t2-bubble">27</div><div class="bubble t2-bubble">28</div><div class="bubble t2-bubble">29</div><div class="bubble t2-bubble">30</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t3-label"><span>Tier 3: Hard Challenges (31 - 45)</span><span>+6 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t3-bubble">31</div><div class="bubble t3-bubble">32</div><div class="bubble t3-bubble">33</div><div class="bubble t3-bubble">34</div><div class="bubble t3-bubble">35</div>
+        <div class="bubble t3-bubble">36</div><div class="bubble t3-bubble">37</div><div class="bubble t3-bubble">38</div><div class="bubble t3-bubble">39</div><div class="bubble t3-bubble">40</div>
+        <div class="bubble t3-bubble">41</div><div class="bubble t3-bubble">42</div><div class="bubble t3-bubble">43</div><div class="bubble t3-bubble">44</div><div class="bubble t3-bubble">45</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t4-label"><span>Tier 4: Creative & Spirit (46 - 53)</span><span>+5 Chips Each</span></div>
+      <div class="bubbles-grid-8">
+        <div class="bubble t4-bubble">46</div><div class="bubble t4-bubble">47</div><div class="bubble t4-bubble">48</div><div class="bubble t4-bubble">49</div>
+        <div class="bubble t4-bubble">50</div><div class="bubble t4-bubble">51</div><div class="bubble t4-bubble">52</div><div class="bubble t4-bubble">53</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span><strong>Starting:</strong> 20 Chips</span>
+      <span><strong>Earned:</strong> ________ Chips</span>
+      <span><strong>Treats Purchased:</strong> ____</span>
+      <span><strong>Judge Sign-Off:</strong> ________________</span>
+    </div>
+  </div>
+
+  <div class="cut-guide">&#9986; CUT HERE ALONG DOTTED LINE</div>
+
+  <!-- TEAM 4 -->
+  <div class="card-container">
+    <div class="card-header">
+      <div class="team-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/><path d="M4 18 3 9h18l-1 9"/><path d="M12 2v7"/></svg>
+        Team 4 &bull; Challenge Punch Card
+      </div>
+      <div style="background: #0f172a; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 8pt;">TABLE #4</div>
+    </div>
+    <div class="team-fields">
+      <div class="field-box">Boat Name: </div>
+      <div class="field-box">Lead Builder: </div>
+      <div class="field-box">Runners: </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t1-label"><span>Tier 1: Easy Challenges (1 - 15)</span><span>+2 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t1-bubble">1</div><div class="bubble t1-bubble">2</div><div class="bubble t1-bubble">3</div><div class="bubble t1-bubble">4</div><div class="bubble t1-bubble">5</div>
+        <div class="bubble t1-bubble">6</div><div class="bubble t1-bubble">7</div><div class="bubble t1-bubble">8</div><div class="bubble t1-bubble">9</div><div class="bubble t1-bubble">10</div>
+        <div class="bubble t1-bubble">11</div><div class="bubble t1-bubble">12</div><div class="bubble t1-bubble">13</div><div class="bubble t1-bubble">14</div><div class="bubble t1-bubble">15</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t2-label"><span>Tier 2: Medium Challenges (16 - 30)</span><span>+4 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t2-bubble">16</div><div class="bubble t2-bubble">17</div><div class="bubble t2-bubble">18</div><div class="bubble t2-bubble">19</div><div class="bubble t2-bubble">20</div>
+        <div class="bubble t2-bubble">21</div><div class="bubble t2-bubble">22</div><div class="bubble t2-bubble">23</div><div class="bubble t2-bubble">24</div><div class="bubble t2-bubble">25</div>
+        <div class="bubble t2-bubble">26</div><div class="bubble t2-bubble">27</div><div class="bubble t2-bubble">28</div><div class="bubble t2-bubble">29</div><div class="bubble t2-bubble">30</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t3-label"><span>Tier 3: Hard Challenges (31 - 45)</span><span>+6 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t3-bubble">31</div><div class="bubble t3-bubble">32</div><div class="bubble t3-bubble">33</div><div class="bubble t3-bubble">34</div><div class="bubble t3-bubble">35</div>
+        <div class="bubble t3-bubble">36</div><div class="bubble t3-bubble">37</div><div class="bubble t3-bubble">38</div><div class="bubble t3-bubble">39</div><div class="bubble t3-bubble">40</div>
+        <div class="bubble t3-bubble">41</div><div class="bubble t3-bubble">42</div><div class="bubble t3-bubble">43</div><div class="bubble t3-bubble">44</div><div class="bubble t3-bubble">45</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t4-label"><span>Tier 4: Creative & Spirit (46 - 53)</span><span>+5 Chips Each</span></div>
+      <div class="bubbles-grid-8">
+        <div class="bubble t4-bubble">46</div><div class="bubble t4-bubble">47</div><div class="bubble t4-bubble">48</div><div class="bubble t4-bubble">49</div>
+        <div class="bubble t4-bubble">50</div><div class="bubble t4-bubble">51</div><div class="bubble t4-bubble">52</div><div class="bubble t4-bubble">53</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span><strong>Starting:</strong> 20 Chips</span>
+      <span><strong>Earned:</strong> ________ Chips</span>
+      <span><strong>Treats Purchased:</strong> ____</span>
+      <span><strong>Judge Sign-Off:</strong> ________________</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: TEAMS 5 & 6 -->
+<div class="page">
+  <!-- TEAM 5 -->
+  <div class="card-container">
+    <div class="card-header">
+      <div class="team-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/><path d="M4 18 3 9h18l-1 9"/><path d="M12 2v7"/></svg>
+        Team 5 &bull; Challenge Punch Card
+      </div>
+      <div style="background: #0f172a; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 8pt;">TABLE #5</div>
+    </div>
+    <div class="team-fields">
+      <div class="field-box">Boat Name: </div>
+      <div class="field-box">Lead Builder: </div>
+      <div class="field-box">Runners: </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t1-label"><span>Tier 1: Easy Challenges (1 - 15)</span><span>+2 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t1-bubble">1</div><div class="bubble t1-bubble">2</div><div class="bubble t1-bubble">3</div><div class="bubble t1-bubble">4</div><div class="bubble t1-bubble">5</div>
+        <div class="bubble t1-bubble">6</div><div class="bubble t1-bubble">7</div><div class="bubble t1-bubble">8</div><div class="bubble t1-bubble">9</div><div class="bubble t1-bubble">10</div>
+        <div class="bubble t1-bubble">11</div><div class="bubble t1-bubble">12</div><div class="bubble t1-bubble">13</div><div class="bubble t1-bubble">14</div><div class="bubble t1-bubble">15</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t2-label"><span>Tier 2: Medium Challenges (16 - 30)</span><span>+4 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t2-bubble">16</div><div class="bubble t2-bubble">17</div><div class="bubble t2-bubble">18</div><div class="bubble t2-bubble">19</div><div class="bubble t2-bubble">20</div>
+        <div class="bubble t2-bubble">21</div><div class="bubble t2-bubble">22</div><div class="bubble t2-bubble">23</div><div class="bubble t2-bubble">24</div><div class="bubble t2-bubble">25</div>
+        <div class="bubble t2-bubble">26</div><div class="bubble t2-bubble">27</div><div class="bubble t2-bubble">28</div><div class="bubble t2-bubble">29</div><div class="bubble t2-bubble">30</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t3-label"><span>Tier 3: Hard Challenges (31 - 45)</span><span>+6 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t3-bubble">31</div><div class="bubble t3-bubble">32</div><div class="bubble t3-bubble">33</div><div class="bubble t3-bubble">34</div><div class="bubble t3-bubble">35</div>
+        <div class="bubble t3-bubble">36</div><div class="bubble t3-bubble">37</div><div class="bubble t3-bubble">38</div><div class="bubble t3-bubble">39</div><div class="bubble t3-bubble">40</div>
+        <div class="bubble t3-bubble">41</div><div class="bubble t3-bubble">42</div><div class="bubble t3-bubble">43</div><div class="bubble t3-bubble">44</div><div class="bubble t3-bubble">45</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t4-label"><span>Tier 4: Creative & Spirit (46 - 53)</span><span>+5 Chips Each</span></div>
+      <div class="bubbles-grid-8">
+        <div class="bubble t4-bubble">46</div><div class="bubble t4-bubble">47</div><div class="bubble t4-bubble">48</div><div class="bubble t4-bubble">49</div>
+        <div class="bubble t4-bubble">50</div><div class="bubble t4-bubble">51</div><div class="bubble t4-bubble">52</div><div class="bubble t4-bubble">53</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span><strong>Starting:</strong> 20 Chips</span>
+      <span><strong>Earned:</strong> ________ Chips</span>
+      <span><strong>Treats Purchased:</strong> ____</span>
+      <span><strong>Judge Sign-Off:</strong> ________________</span>
+    </div>
+  </div>
+
+  <div class="cut-guide">&#9986; CUT HERE ALONG DOTTED LINE</div>
+
+  <!-- TEAM 6 -->
+  <div class="card-container">
+    <div class="card-header">
+      <div class="team-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/><path d="M4 18 3 9h18l-1 9"/><path d="M12 2v7"/></svg>
+        Team 6 &bull; Challenge Punch Card
+      </div>
+      <div style="background: #0f172a; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 8pt;">TABLE #6</div>
+    </div>
+    <div class="team-fields">
+      <div class="field-box">Boat Name: </div>
+      <div class="field-box">Lead Builder: </div>
+      <div class="field-box">Runners: </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t1-label"><span>Tier 1: Easy Challenges (1 - 15)</span><span>+2 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t1-bubble">1</div><div class="bubble t1-bubble">2</div><div class="bubble t1-bubble">3</div><div class="bubble t1-bubble">4</div><div class="bubble t1-bubble">5</div>
+        <div class="bubble t1-bubble">6</div><div class="bubble t1-bubble">7</div><div class="bubble t1-bubble">8</div><div class="bubble t1-bubble">9</div><div class="bubble t1-bubble">10</div>
+        <div class="bubble t1-bubble">11</div><div class="bubble t1-bubble">12</div><div class="bubble t1-bubble">13</div><div class="bubble t1-bubble">14</div><div class="bubble t1-bubble">15</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t2-label"><span>Tier 2: Medium Challenges (16 - 30)</span><span>+4 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t2-bubble">16</div><div class="bubble t2-bubble">17</div><div class="bubble t2-bubble">18</div><div class="bubble t2-bubble">19</div><div class="bubble t2-bubble">20</div>
+        <div class="bubble t2-bubble">21</div><div class="bubble t2-bubble">22</div><div class="bubble t2-bubble">23</div><div class="bubble t2-bubble">24</div><div class="bubble t2-bubble">25</div>
+        <div class="bubble t2-bubble">26</div><div class="bubble t2-bubble">27</div><div class="bubble t2-bubble">28</div><div class="bubble t2-bubble">29</div><div class="bubble t2-bubble">30</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t3-label"><span>Tier 3: Hard Challenges (31 - 45)</span><span>+6 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t3-bubble">31</div><div class="bubble t3-bubble">32</div><div class="bubble t3-bubble">33</div><div class="bubble t3-bubble">34</div><div class="bubble t3-bubble">35</div>
+        <div class="bubble t3-bubble">36</div><div class="bubble t3-bubble">37</div><div class="bubble t3-bubble">38</div><div class="bubble t3-bubble">39</div><div class="bubble t3-bubble">40</div>
+        <div class="bubble t3-bubble">41</div><div class="bubble t3-bubble">42</div><div class="bubble t3-bubble">43</div><div class="bubble t3-bubble">44</div><div class="bubble t3-bubble">45</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t4-label"><span>Tier 4: Creative & Spirit (46 - 53)</span><span>+5 Chips Each</span></div>
+      <div class="bubbles-grid-8">
+        <div class="bubble t4-bubble">46</div><div class="bubble t4-bubble">47</div><div class="bubble t4-bubble">48</div><div class="bubble t4-bubble">49</div>
+        <div class="bubble t4-bubble">50</div><div class="bubble t4-bubble">51</div><div class="bubble t4-bubble">52</div><div class="bubble t4-bubble">53</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span><strong>Starting:</strong> 20 Chips</span>
+      <span><strong>Earned:</strong> ________ Chips</span>
+      <span><strong>Treats Purchased:</strong> ____</span>
+      <span><strong>Judge Sign-Off:</strong> ________________</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 4: TEAMS 7 & 8 -->
+<div class="page">
+  <!-- TEAM 7 -->
+  <div class="card-container">
+    <div class="card-header">
+      <div class="team-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/><path d="M4 18 3 9h18l-1 9"/><path d="M12 2v7"/></svg>
+        Team 7 &bull; Challenge Punch Card
+      </div>
+      <div style="background: #0f172a; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 8pt;">TABLE #7</div>
+    </div>
+    <div class="team-fields">
+      <div class="field-box">Boat Name: </div>
+      <div class="field-box">Lead Builder: </div>
+      <div class="field-box">Runners: </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t1-label"><span>Tier 1: Easy Challenges (1 - 15)</span><span>+2 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t1-bubble">1</div><div class="bubble t1-bubble">2</div><div class="bubble t1-bubble">3</div><div class="bubble t1-bubble">4</div><div class="bubble t1-bubble">5</div>
+        <div class="bubble t1-bubble">6</div><div class="bubble t1-bubble">7</div><div class="bubble t1-bubble">8</div><div class="bubble t1-bubble">9</div><div class="bubble t1-bubble">10</div>
+        <div class="bubble t1-bubble">11</div><div class="bubble t1-bubble">12</div><div class="bubble t1-bubble">13</div><div class="bubble t1-bubble">14</div><div class="bubble t1-bubble">15</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t2-label"><span>Tier 2: Medium Challenges (16 - 30)</span><span>+4 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t2-bubble">16</div><div class="bubble t2-bubble">17</div><div class="bubble t2-bubble">18</div><div class="bubble t2-bubble">19</div><div class="bubble t2-bubble">20</div>
+        <div class="bubble t2-bubble">21</div><div class="bubble t2-bubble">22</div><div class="bubble t2-bubble">23</div><div class="bubble t2-bubble">24</div><div class="bubble t2-bubble">25</div>
+        <div class="bubble t2-bubble">26</div><div class="bubble t2-bubble">27</div><div class="bubble t2-bubble">28</div><div class="bubble t2-bubble">29</div><div class="bubble t2-bubble">30</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t3-label"><span>Tier 3: Hard Challenges (31 - 45)</span><span>+6 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t3-bubble">31</div><div class="bubble t3-bubble">32</div><div class="bubble t3-bubble">33</div><div class="bubble t3-bubble">34</div><div class="bubble t3-bubble">35</div>
+        <div class="bubble t3-bubble">36</div><div class="bubble t3-bubble">37</div><div class="bubble t3-bubble">38</div><div class="bubble t3-bubble">39</div><div class="bubble t3-bubble">40</div>
+        <div class="bubble t3-bubble">41</div><div class="bubble t3-bubble">42</div><div class="bubble t3-bubble">43</div><div class="bubble t3-bubble">44</div><div class="bubble t3-bubble">45</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t4-label"><span>Tier 4: Creative & Spirit (46 - 53)</span><span>+5 Chips Each</span></div>
+      <div class="bubbles-grid-8">
+        <div class="bubble t4-bubble">46</div><div class="bubble t4-bubble">47</div><div class="bubble t4-bubble">48</div><div class="bubble t4-bubble">49</div>
+        <div class="bubble t4-bubble">50</div><div class="bubble t4-bubble">51</div><div class="bubble t4-bubble">52</div><div class="bubble t4-bubble">53</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span><strong>Starting:</strong> 20 Chips</span>
+      <span><strong>Earned:</strong> ________ Chips</span>
+      <span><strong>Treats Purchased:</strong> ____</span>
+      <span><strong>Judge Sign-Off:</strong> ________________</span>
+    </div>
+  </div>
+
+  <div class="cut-guide">&#9986; CUT HERE ALONG DOTTED LINE</div>
+
+  <!-- TEAM 8 -->
+  <div class="card-container">
+    <div class="card-header">
+      <div class="team-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/><path d="M4 18 3 9h18l-1 9"/><path d="M12 2v7"/></svg>
+        Team 8 &bull; Challenge Punch Card
+      </div>
+      <div style="background: #0f172a; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 8pt;">TABLE #8</div>
+    </div>
+    <div class="team-fields">
+      <div class="field-box">Boat Name: </div>
+      <div class="field-box">Lead Builder: </div>
+      <div class="field-box">Runners: </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t1-label"><span>Tier 1: Easy Challenges (1 - 15)</span><span>+2 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t1-bubble">1</div><div class="bubble t1-bubble">2</div><div class="bubble t1-bubble">3</div><div class="bubble t1-bubble">4</div><div class="bubble t1-bubble">5</div>
+        <div class="bubble t1-bubble">6</div><div class="bubble t1-bubble">7</div><div class="bubble t1-bubble">8</div><div class="bubble t1-bubble">9</div><div class="bubble t1-bubble">10</div>
+        <div class="bubble t1-bubble">11</div><div class="bubble t1-bubble">12</div><div class="bubble t1-bubble">13</div><div class="bubble t1-bubble">14</div><div class="bubble t1-bubble">15</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t2-label"><span>Tier 2: Medium Challenges (16 - 30)</span><span>+4 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t2-bubble">16</div><div class="bubble t2-bubble">17</div><div class="bubble t2-bubble">18</div><div class="bubble t2-bubble">19</div><div class="bubble t2-bubble">20</div>
+        <div class="bubble t2-bubble">21</div><div class="bubble t2-bubble">22</div><div class="bubble t2-bubble">23</div><div class="bubble t2-bubble">24</div><div class="bubble t2-bubble">25</div>
+        <div class="bubble t2-bubble">26</div><div class="bubble t2-bubble">27</div><div class="bubble t2-bubble">28</div><div class="bubble t2-bubble">29</div><div class="bubble t2-bubble">30</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t3-label"><span>Tier 3: Hard Challenges (31 - 45)</span><span>+6 Chips Each</span></div>
+      <div class="bubbles-grid">
+        <div class="bubble t3-bubble">31</div><div class="bubble t3-bubble">32</div><div class="bubble t3-bubble">33</div><div class="bubble t3-bubble">34</div><div class="bubble t3-bubble">35</div>
+        <div class="bubble t3-bubble">36</div><div class="bubble t3-bubble">37</div><div class="bubble t3-bubble">38</div><div class="bubble t3-bubble">39</div><div class="bubble t3-bubble">40</div>
+        <div class="bubble t3-bubble">41</div><div class="bubble t3-bubble">42</div><div class="bubble t3-bubble">43</div><div class="bubble t3-bubble">44</div><div class="bubble t3-bubble">45</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-label t4-label"><span>Tier 4: Creative & Spirit (46 - 53)</span><span>+5 Chips Each</span></div>
+      <div class="bubbles-grid-8">
+        <div class="bubble t4-bubble">46</div><div class="bubble t4-bubble">47</div><div class="bubble t4-bubble">48</div><div class="bubble t4-bubble">49</div>
+        <div class="bubble t4-bubble">50</div><div class="bubble t4-bubble">51</div><div class="bubble t4-bubble">52</div><div class="bubble t4-bubble">53</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span><strong>Starting:</strong> 20 Chips</span>
+      <span><strong>Earned:</strong> ________ Chips</span>
+      <span><strong>Treats Purchased:</strong> ____</span>
+      <span><strong>Judge Sign-Off:</strong> ________________</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 # Organizer shopping and prep checklist
 
-Use this checklist to buy supplies, collect donations, and set up the room before the game begins. All quantities are calculated for 8 teams (44 campers).
+Use this checklist to buy supplies, collect donations, and set up the room before the game begins. All quantities are calculated for 8 teams (48 campers).
 
 ---
 
@@ -8,8 +8,8 @@ Use this checklist to buy supplies, collect donations, and set up the room befor
 
 Ask church members, camp staff, or parents to save these clean recycled items:
 
-- **25-30 empty plastic water bottles (16-20 oz) with caps.** Wash them out and make sure the caps seal tightly.
-- **15-20 small soda cans or mini plastic bottles (8-12 oz).** Good for small outrigger pontoons.
+- **25-30 empty plastic water bottles (500 mL) with caps.** Wash them out and make sure the caps seal tightly.
+- **15-20 small soda cans or mini plastic bottles (8-12 oz / 250-350 mL).** Good for small outrigger pontoons.
 - **Cardboard shipping boxes.** Look for clean, single-wall corrugated boxes. Avoid greasy pizza boxes or heavy double-wall industrial boxes that kids cannot cut.
 - **4-5 old bath towels.** Place these under and around the testing water tub to soak up inevitable splashes.
 
@@ -20,7 +20,7 @@ Ask church members, camp staff, or parents to save these clean recycled items:
 ### Construction materials
 | Item | Recommended quantity | Where to buy | Estimated cost | Notes |
 |---|---|---|---|---|
-| Heavy-duty duct tape | 4 rolls | Hardware store / Big box | \$16 - \$24 | Get standard 1.88-inch width. Strong adhesive is essential. |
+| Heavy-duty duct tape | 4 rolls | Hardware store / Big box | \$16 - \$24 | Standard 1.88-inch width. Strong adhesive is essential. |
 | Masking tape | 2 rolls | Hardware or dollar store | \$3 - \$5 | 1-inch or 1.5-inch width. |
 | Aluminum foil (heavy-duty) | 2 standard rolls (50-75 sq ft each) | Grocery / Dollar store | \$6 - \$8 | 12-inch width. Heavier foil resists tears better. |
 | Foam or paper bowls (12-16 oz) | 1 pack (30-50 count) | Dollar store / Grocery | \$2 - \$3 | Wide, stable base for cheap hulls. |
@@ -30,10 +30,10 @@ Ask church members, camp staff, or parents to save these clean recycled items:
 | Plastic drinking straws | 1 box (100 count) | Dollar store / Grocery | \$1.50 | Lightweight braces and masts. |
 | Rubber bands | 1 pack (50-100 count) | Dollar store | \$1.50 | Assorted sizes. |
 
-### The trap and currency
+### Snacks and currency
 | Item | Recommended quantity | Where to buy | Estimated cost | Notes |
 |---|---|---|---|---|
-| Regular marshmallows | 2 standard bags (12 oz) | Grocery store | \$3 - \$4 | The bait. Keep in a prominent clear container. |
+| Sweet treats (Cookies, snack candy, or pastries) | 65-80 individual treats | Grocery store | \$6 - \$12 | The temptation item. Keep in an appealing clean tray on the counter. |
 | Poker chip set | 1 set (300-500 chips) | Borrow or buy online | \$0 - \$20 | You need at least 350 chips total across the game. |
 
 ### Testing arena and weights
@@ -51,7 +51,7 @@ Ask church members, camp staff, or parents to save these clean recycled items:
 | Clipboards | 3 clipboards | Camp office | \$0 | For shopkeeper and two challenge judges. |
 | Index cards | 1 pack (100 count) | Dollar store | \$1.50 | Used for drawing challenges and scratch pads. |
 | Sharpies / Pens | 6 pens / markers | Camp supply | \$0 | Marking punch cards and sketching designs. |
-| Whistle / Megaphone | 1 unit | Camp sports gear | \$0 | Keeps 44 excited kids on schedule. |
+| Whistle / Megaphone | 1 unit | Camp sports gear | \$0 | Keeps 48 excited kids on schedule. |
 
 ---
 
@@ -62,7 +62,7 @@ Do not leave these prep steps for game time:
 1. **Slice the pool noodles.**
    - Take a serrated kitchen bread knife and slice 2 pool noodles into 2-inch thick donut rings.
    - 2 pool noodles will yield roughly 35 to 40 rings.
-   - Put them in a clear trash bag or tote box.
+   - Put them in a clean storage box or trash bag.
 2. **Pre-cut cardboard squares.**
    - Use a utility knife and ruler to cut clean 6" x 6" cardboard squares.
    - Cut at least 50 squares.
@@ -72,8 +72,9 @@ Do not leave these prep steps for game time:
    - Put exactly 20 poker chips into each container.
    - When teams form, hand one container directly to each team captain.
 4. **Prepare printouts.**
-   - 8 copies of the **Team challenge punch card** (found at the bottom of the giant challenge sheet).
+   - 8 copies of the **Team challenge punch card** (found in `Team_Challenge_Punch_Cards.pdf`).
    - 2 copies of the **Giant challenge sheet** (one for each challenge judge).
+   - Pre-cut stacks of **Scripture memory slips** for judges to hand to campers.
    - 2 copies of the **Shop menu** (taped to front of shop table).
    - 1 copy of the **Shopkeeper inventory tracking sheet**.
    - 1 copy of the **Master game guide** (for the director).
@@ -92,7 +93,7 @@ Arrange the room into four distinct zones:
 |                            STAGE / WHITEBOARD                         |
 |                                                                       |
 |   [CHALLENGE STATION 1]                         [CHALLENGE STATION 2] |
-|   (Table + Helper + Sheet)                      (Table + Helper + Sheet)
+|   (Table + Helper + Sheet + Verses)             (Table + Helper + Sheet + Verses)
 |                                                                       |
 |                                                                       |
 |      [TEAM 1]       [TEAM 2]       [TEAM 3]       [TEAM 4]            |
@@ -103,11 +104,11 @@ Arrange the room into four distinct zones:
 |                                                                       |
 |                                                                       |
 |   [SHOP / STORE TABLE]                          [MAIN TESTING TANK]   |
-|   (Helper + Tape + Parts + Marshmallows)        (Tub + Water + Weights)|
+|   (Helper + Tape + Parts + Treats)              (Tub + Water + Weights)|
 +-----------------------------------------------------------------------+
 ```
 
 ### Table prep notes
 - **Challenge stations.** Separate Station 1 and Station 2 on opposite sides of the room. This stops kids from crowding one table and prevents noise interference when kids are reciting verses or singing.
-- **Shop table.** Keep all materials on the back side of the table. Keep marshmallows visible in front. Only the shopkeeper touches the tape rolls.
+- **Shop table.** Keep all building materials on the back side of the table. Keep treats attractively displayed in front. Only the shopkeeper touches the tape rolls.
 - **Testing tank.** Place the clear plastic tub on a sturdy rectangular table. Fill it 2/3 with room temperature water. Lay two bath towels underneath the tub and two towels on the floor around the table. Keep the washers in plastic trays next to the tub.

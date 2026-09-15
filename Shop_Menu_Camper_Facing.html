@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Camp Boat Shop Menu</title>
+<style>
+  @page {
+    size: letter portrait;
+    margin: 0.35in;
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #1a1a2e;
+    background: #ffffff;
+  }
+  .page {
+    width: 100%;
+    min-height: 10in;
+    position: relative;
+    page-break-after: always;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f3460, #16213e);
+    color: #ffffff;
+    padding: 16px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    border-bottom: 4px solid #f4a261;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header-title h1 {
+    margin: 0;
+    font-size: 26pt;
+    letter-spacing: 0.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .header-title p {
+    margin: 2px 0 0 0;
+    font-size: 11pt;
+    color: #48cae4;
+    font-weight: 600;
+  }
+  .starter-box {
+    background: #f0fdf4;
+    border: 2px dashed #22c55e;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .starter-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .starter-badge {
+    background: #16a34a;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 9pt;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+  }
+  .starter-items {
+    font-size: 10pt;
+    color: #166534;
+    font-weight: 700;
+  }
+  .starter-sub {
+    font-size: 8.5pt;
+    color: #15803d;
+    font-weight: 500;
+  }
+  .section-title {
+    font-size: 12pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #0f3460;
+    margin: 8px 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 4px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-bottom: 8px;
+  }
+  .item-card {
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 7px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    break-inside: avoid;
+  }
+  .item-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .item-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+  .item-name {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+  }
+  .item-desc {
+    font-size: 8pt;
+    color: #64748b;
+    margin-top: 1px;
+  }
+  .price-pill {
+    background: #fff7ed;
+    border: 1.5px solid #ea580c;
+    color: #9a3412;
+    padding: 4px 8px;
+    border-radius: 20px;
+    text-align: center;
+    white-space: nowrap;
+    min-width: 65px;
+  }
+  .price-num {
+    font-size: 13pt;
+    font-weight: 900;
+    line-height: 1;
+    display: block;
+  }
+  .price-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .price-pill.tape {
+    background: #eff6ff;
+    border-color: #2563eb;
+    color: #1d4ed8;
+  }
+  .price-pill.treat {
+    background: #fdf4ff;
+    border-color: #c026d3;
+    color: #86198f;
+  }
+  .footer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #f1f5f9;
+    border-top: 1px solid #cbd5e1;
+    padding: 6px 12px;
+    font-size: 8pt;
+    color: #475569;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    border-radius: 0 0 8px 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f4a261" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/>
+        <path d="M4 18 3 9h18l-1 9"/>
+        <path d="M12 2v7"/>
+        <path d="M12 4l5 5"/>
+      </svg>
+      <div class="header-title">
+        <h1>Boat Builders Ship Store</h1>
+        <p>Official Material Prices &bull; Currency: Poker Chips</p>
+      </div>
+    </div>
+    <div style="text-align: right; background: rgba(255,255,255,0.1); padding: 6px 12px; border-radius: 8px;">
+      <div style="font-size: 8pt; text-transform: uppercase; color: #cbd5e1;">Time Limit</div>
+      <div style="font-size: 13pt; font-weight: 800; color: #ffffff;">30 MIN SHOP</div>
+    </div>
+  </div>
+
+  <div class="starter-box">
+    <div class="starter-left">
+      <div class="starter-badge">Free Kit</div>
+      <div>
+        <div class="starter-items">Starter Gear: 20 Poker Chips &bull; 1 Safety Scissors (Loaned)</div>
+        <div class="starter-sub">1 Team Challenge Punch Card &bull; 1 Blueprint Scratch Paper + Pencil</div>
+      </div>
+    </div>
+    <div style="font-size: 8pt; color: #166534; font-weight: 700; text-align: right;">Return scissors at final test</div>
+  </div>
+
+  <div class="section-title">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f3460" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+    Hull and buoyancy materials
+  </div>
+
+  <div class="grid-2">
+    <div class="item-card">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><path d="M8 2h8v4H8zM6 6h12v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM10 10h4"/></svg>
+        <div>
+          <div class="item-name">Water bottle (with cap)</div>
+          <div class="item-desc">500 mL &bull; High buoyancy flotation pontoon</div>
+        </div>
+      </div>
+      <div class="price-pill">
+        <span class="price-num">5</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+        <div>
+          <div class="item-name">Pool noodle slice</div>
+          <div class="item-desc">2-inch thick solid foam donut ring</div>
+        </div>
+      </div>
+      <div class="price-pill">
+        <span class="price-num">6</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><path d="M7 3h10v3H7zM5 6h14v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></svg>
+        <div>
+          <div class="item-name">Mini bottle / soda can</div>
+          <div class="item-desc">250-350 mL &bull; Stable outrigger pontoon</div>
+        </div>
+      </div>
+      <div class="price-pill">
+        <span class="price-num">3</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+        <div>
+          <div class="item-name">Cardboard square</div>
+          <div class="item-desc">6" x 6" sturdy corrugated deck plate</div>
+        </div>
+      </div>
+      <div class="price-pill">
+        <span class="price-num">3</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="m5 5 14 14"/></svg>
+        <div>
+          <div class="item-name">Aluminum foil sheet</div>
+          <div class="item-desc">12" x 12" sheet &bull; Waterproof skin</div>
+        </div>
+      </div>
+      <div class="price-pill">
+        <span class="price-num">4</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M3 7h18l-3 12H6z"/></svg>
+        <div>
+          <div class="item-name">Foam / paper bowl</div>
+          <div class="item-desc">12 oz bowl &bull; Instant wide cargo hull</div>
+        </div>
+      </div>
+      <div class="price-pill">
+        <span class="price-num">4</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M6 3h12l-2 18H8z"/></svg>
+        <div>
+          <div class="item-name">Plastic cup (Solo)</div>
+          <div class="item-desc">16 oz cup &bull; Deep dry cargo hold</div>
+        </div>
+      </div>
+      <div class="price-pill">
+        <span class="price-num">3</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2"><rect x="4" y="10" width="16" height="4" rx="2"/><path d="M2 12h20"/></svg>
+        <div>
+          <div class="item-name">Jumbo craft sticks</div>
+          <div class="item-desc">Bundle of 5 sticks &bull; Deck framing</div>
+        </div>
+      </div>
+      <div class="price-pill">
+        <span class="price-num">2</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><path d="m5 19 14-14M19 5l-4 4"/></svg>
+        <div>
+          <div class="item-name">Plastic straws</div>
+          <div class="item-desc">Bundle of 5 straws &bull; Lightweight struts</div>
+        </div>
+      </div>
+      <div class="price-pill">
+        <span class="price-num">2</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><ellipse cx="12" cy="12" rx="9" ry="5"/></svg>
+        <div>
+          <div class="item-name">Rubber bands</div>
+          <div class="item-desc">Pack of 4 bands &bull; Bottle fastening</div>
+        </div>
+      </div>
+      <div class="price-pill">
+        <span class="price-num">2</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+    Adhesives (Cut to order by shopkeeper)
+  </div>
+
+  <div class="grid-2">
+    <div class="item-card" style="border: 2px solid #2563eb; background: #f8fafc;">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v5"/></svg>
+        <div>
+          <div class="item-name" style="color: #1e40af;">Heavy-duty duct tape</div>
+          <div class="item-desc">1 Arm-Length Strip (~2.5 ft) &bull; Waterproof bond</div>
+        </div>
+      </div>
+      <div class="price-pill tape">
+        <span class="price-num">5</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+
+    <div class="item-card" style="border: 1.5px solid #64748b;">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+        <div>
+          <div class="item-name">Masking tape</div>
+          <div class="item-desc">1 Arm-Length Strip (~2.5 ft) &bull; Quick joints</div>
+        </div>
+      </div>
+      <div class="price-pill tape" style="border-color: #64748b; color: #334155;">
+        <span class="price-num">3</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- REFRESHMENTS & SNACKS (SUBTLE, APPEALING, NO "BAIT" OR "WARNING") -->
+  <div class="section-title" style="color: #86198f; border-bottom-color: #f5d0fe;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a21caf" stroke-width="2.5">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M8 12c1.5 2 4.5 2 6 0"/>
+      <circle cx="9" cy="9" r="1" fill="#a21caf"/>
+      <circle cx="15" cy="9" r="1" fill="#a21caf"/>
+    </svg>
+    Refreshments & snacks
+  </div>
+
+  <div class="grid-2">
+    <div class="item-card" style="border: 1.5px solid #d946ef; background: #fdf4ff;">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#c026d3" stroke-width="2">
+          <circle cx="12" cy="12" r="8"/>
+          <path d="M12 4a8 8 0 0 1 8 8"/>
+          <circle cx="10" cy="10" r="1.5" fill="#c026d3"/>
+          <circle cx="14" cy="14" r="1" fill="#c026d3"/>
+        </svg>
+        <div>
+          <div class="item-name" style="color: #701a75;">Sweet treat</div>
+          <div class="item-desc">Fresh, delicious camp snack</div>
+        </div>
+      </div>
+      <div class="price-pill treat">
+        <span class="price-num">2</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+
+    <div class="item-card" style="border: 1.5px solid #d946ef; background: #fdf4ff;">
+      <div class="item-info">
+        <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#c026d3" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <div>
+          <div class="item-name" style="color: #701a75;">Deluxe sweet treat</div>
+          <div class="item-desc">Large premium camp snack</div>
+        </div>
+      </div>
+      <div class="price-pill treat">
+        <span class="price-num">3</span>
+        <span class="price-label">Chips</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <span>Need more chips? Send runners to the Challenge Stations to earn 2, 4, 5, or 6 chips!</span>
+    <span>ALL SALES FINAL &bull; SHOP CLOSES AT MINUTE 38</span>
+  </div>
+</div>
+
+</body>
+</html>

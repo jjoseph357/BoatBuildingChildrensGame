@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Giant Challenge Bank: Judges & Operators Guide</title>
+<style>
+  @page {
+    size: letter portrait;
+    margin: 0.35in;
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #1e293b;
+    background: #ffffff;
+    font-size: 8.5pt;
+    line-height: 1.3;
+  }
+  .page {
+    width: 100%;
+    min-height: 10in;
+    position: relative;
+    page-break-after: always;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+  .header {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    border-bottom: 3px solid #38bdf8;
+  }
+  .header h1 {
+    margin: 0;
+    font-size: 15pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .header p {
+    margin: 1px 0 0 0;
+    font-size: 8pt;
+    color: #94a3b8;
+  }
+  .judge-rules {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 6px 12px;
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    font-size: 7.5pt;
+  }
+  .judge-rule-item strong {
+    color: #0284c7;
+    display: block;
+    font-size: 8pt;
+    text-transform: uppercase;
+  }
+  .tier-banner {
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 10pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 8px 0 6px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    break-after: avoid;
+  }
+  .tier-1 { background: linear-gradient(90deg, #15803d, #16a34a); border-left: 5px solid #86efac; }
+  .tier-2 { background: linear-gradient(90deg, #1d4ed8, #2563eb); border-left: 5px solid #93c5fd; }
+  .tier-3 { background: linear-gradient(90deg, #b91c1c, #dc2626); border-left: 5px solid #fca5a5; }
+  .tier-4 { background: linear-gradient(90deg, #d97706, #f59e0b); border-left: 5px solid #fde68a; }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .challenge-card {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 6px 8px;
+    background: #ffffff;
+    break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3px;
+  }
+  .challenge-title {
+    font-size: 8.5pt;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+  }
+  .chip-tag {
+    font-size: 7.5pt;
+    font-weight: 900;
+    padding: 2px 6px;
+    border-radius: 12px;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .tag-t1 { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+  .tag-t2 { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+  .tag-t3 { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+  .tag-t4 { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+
+  .task-text {
+    font-size: 7.8pt;
+    color: #334155;
+    margin-bottom: 3px;
+    line-height: 1.25;
+  }
+  .answer-box {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 7.6pt;
+    color: #166534;
+    line-height: 1.25;
+  }
+  .answer-box strong {
+    color: #14532d;
+    text-transform: uppercase;
+    font-size: 7pt;
+    letter-spacing: 0.5px;
+    margin-right: 3px;
+  }
+  .criteria-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 7.5pt;
+    color: #475569;
+    line-height: 1.25;
+  }
+  .criteria-box strong {
+    color: #0f172a;
+    text-transform: uppercase;
+    font-size: 7pt;
+    margin-right: 3px;
+  }
+  .page-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 7pt;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 3px;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Intro + Tier 1 (Part 1) -->
+<div class="page">
+  <div class="header">
+    <div>
+      <h1>Giant Challenge Bank &bull; Judge Reference</h1>
+      <p>Instant Helper Answer Key &bull; Mark Punch Card Upon Pass &bull; Give Chips Immediately</p>
+    </div>
+    <div style="background: #0284c7; color: #ffffff; padding: 4px 10px; border-radius: 5px; font-weight: 800; font-size: 8pt;">
+      STAFF KEY
+    </div>
+  </div>
+
+  <div class="judge-rules">
+    <div class="judge-rule-item">
+      <strong>1. Fast Pace</strong>
+      Keep attempts under 45s. Send campers back to practice if stuck.
+    </div>
+    <div class="judge-rule-item">
+      <strong>2. One Payout</strong>
+      Initial punch card on completion. Teams cannot repeat challenges.
+    </div>
+    <div class="judge-rule-item">
+      <strong>3. Memory Slips</strong>
+      Point kids to verse text on this sheet so they can study with team!
+    </div>
+    <div class="judge-rule-item">
+      <strong>4. Age Guide</strong>
+      Ages 7-11: Tier 1. Ages 12-18: Tiers 2 & 3. Anyone: Tier 4.
+    </div>
+  </div>
+
+  <div class="tier-banner tier-1">
+    <span>Tier 1: Easy Challenges &bull; Ages 7-11</span>
+    <span style="font-size: 8pt; background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 10px;">Payout: +2 Poker Chips</span>
+  </div>
+
+  <div class="card-grid">
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#01. The Ark Builder</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Who built the ark in the book of Genesis?</div>
+      <div class="answer-box"><strong>Key:</strong> Noah (Genesis 6).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#02. Walk On Water</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Name two people who walked on water.</div>
+      <div class="answer-box"><strong>Key:</strong> Jesus and Peter (Matthew 14). Accept just Peter if age &lt; 9.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#03. Giant Slayer</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Who was the giant David defeated with a sling?</div>
+      <div class="answer-box"><strong>Key:</strong> Goliath (1 Samuel 17).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#04. Big Fish Tale</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Which prophet was swallowed by a great fish?</div>
+      <div class="answer-box"><strong>Key:</strong> Jonah (Jonah 1).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#05. Name Two Disciples</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Name any two of Jesus' twelve disciples.</div>
+      <div class="answer-box"><strong>Key:</strong> Peter, Andrew, James, John, Philip, Thomas, Matthew, etc.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#06. Two Commandments</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Name any two of the Ten Commandments.</div>
+      <div class="answer-box"><strong>Key:</strong> Honor parents; Do not steal; Do not lie; No other gods; etc.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#07. City Of Birth</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">In what town was Jesus born?</div>
+      <div class="answer-box"><strong>Key:</strong> Bethlehem (Luke 2).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#08. The Parted Waters</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">What body of water did Moses part?</div>
+      <div class="answer-box"><strong>Key:</strong> The Red Sea (Exodus 14).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#09. Memory: John 11:35</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Memorize & recite shortest verse in English Bible.</div>
+      <div class="answer-box"><strong>Verse:</strong> "Jesus wept." (John 11:35).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#10. Memory: 1 John 4:19</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Memorize & recite 1 John 4:19.</div>
+      <div class="answer-box"><strong>Verse:</strong> "We love because he first loved us." (1 John 4:19).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#11. Sing "Jesus Loves Me"</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Sing verse 1 and chorus out loud with enthusiasm.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Sings clearly through chorus without stopping.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#12. "This Little Light"</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Sing chorus with pointer finger candle action.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Must hold finger up and blow it out at the end!</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#13. Pencil Balance</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Balance a pencil on 1 finger for 7 full seconds.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Count to 7 out loud. No touching with other hand.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#14. High-Five Sprint</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">High-five 5 kids from 5 different teams in &lt;15s.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Judge counts out loud. Must tag 5 different teams.</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Giant Challenge Bank &bull; Judge Reference Sheet</span>
+    <span>Page 1 of 4 &bull; Tier 1 (1-14)</span>
+  </div>
+</div>
+
+<!-- PAGE 2: Tier 1 Finish + Tier 2 (Part 1) -->
+<div class="page">
+  <div class="header">
+    <div>
+      <h1>Giant Challenge Bank &bull; Tier 2 (Medium)</h1>
+      <p>Intermediate Scripture, Trivia & Trickshots &bull; Payout: +4 Poker Chips</p>
+    </div>
+    <div style="background: #2563eb; color: #ffffff; padding: 4px 10px; border-radius: 5px; font-weight: 800; font-size: 8pt;">
+      TIER 2 &bull; +4 CHIPS
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#15. Draw Your Boat</span>
+        <span class="chip-tag tag-t1">+2 CHIPS</span>
+      </div>
+      <div class="task-text">Draw boat with water, flag, and smile in 20s.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Judge inspects quick sketch on scratch paper.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#16. The Four Gospels</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Name the four Gospels in New Testament order.</div>
+      <div class="answer-box"><strong>Key:</strong> Matthew, Mark, Luke, John.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#17. The Boy's Lunch</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">What did the boy give Jesus to feed 5,000?</div>
+      <div class="answer-box"><strong>Key:</strong> 5 loaves of bread and 2 small fish (John 6).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#18. Memory: John 3:16</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Memorize & recite John 3:16 from memory.</div>
+      <div class="answer-box"><strong>Verse:</strong> "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#19. Memory: Genesis 1:1</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Memorize & recite the first verse of the Bible.</div>
+      <div class="answer-box"><strong>Verse:</strong> "In the beginning God created the heavens and the earth." (Genesis 1:1).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#20. Memory: Psalm 119:105</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Memorize & recite Psalm 119:105.</div>
+      <div class="answer-box"><strong>Verse:</strong> "Your word is a lamp for my feet, a light on my path." (Psalm 119:105).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#21. Memory: Proverbs 3:5</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Memorize & recite Proverbs 3:5.</div>
+      <div class="answer-box"><strong>Verse:</strong> "Trust in the Lord with all your heart and lean not on your own understanding." (Proverbs 3:5).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#22. The First Five Books</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Name the first 5 books of the Old Testament.</div>
+      <div class="answer-box"><strong>Key:</strong> Genesis, Exodus, Leviticus, Numbers, Deuteronomy.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#23. Lions' Den Survivor</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Who was in the lions' den, and why unharmed?</div>
+      <div class="answer-box"><strong>Key:</strong> Daniel. God sent an angel to shut lions' mouths (Dan 6).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#24. Many-Colored Coat</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Which son of Jacob had the coat of many colors?</div>
+      <div class="answer-box"><strong>Key:</strong> Joseph (Genesis 37).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#25. Four Fruits Of Spirit</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Name any 4 of the 9 fruits of the Spirit.</div>
+      <div class="answer-box"><strong>Key:</strong> Love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#26. 500 mL Bottle Flip</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Land an upright bottle flip using 500 mL bottle.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Lands upright on table. Max 3 attempts per turn.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#27. Ping Pong Cup Bounce</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Bounce ball once on table into Solo cup from 4ft.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Lands and stays in cup. Max 3 attempts.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#28. Chin Drop Chip</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Drop chip from chin height into cup on floor.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Lands in cup without bouncing out. 3 attempts.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#29. Draw Noah's Ark</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Draw ark with 3 distinct animal pairs in 30s.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Judge must recognize the 3 animal pairs.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#30. Partner Cup Catch</span>
+        <span class="chip-tag tag-t2">+4 CHIPS</span>
+      </div>
+      <div class="task-text">Toss ping pong ball 6ft into partner's Solo cup.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Clean cup catch! 3 toss attempts allowed.</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Giant Challenge Bank &bull; Judge Reference Sheet</span>
+    <span>Page 2 of 4 &bull; Tiers 1-2 (15-30)</span>
+  </div>
+</div>
+
+<!-- PAGE 3: Tier 3 (Hard) -->
+<div class="page">
+  <div class="header">
+    <div>
+      <h1>Giant Challenge Bank &bull; Tier 3 (Hard)</h1>
+      <p>Teens & Older Campers &bull; Scripture Memory & Coordination &bull; Payout: +6 Chips</p>
+    </div>
+    <div style="background: #dc2626; color: #ffffff; padding: 4px 10px; border-radius: 5px; font-weight: 800; font-size: 8pt;">
+      TIER 3 &bull; +6 CHIPS
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#31. Memory: Psalm 23:1-3</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Memorize & recite Psalm 23:1-3 from memory.</div>
+      <div class="answer-box"><strong>Verse:</strong> "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters, he refreshes my soul. He guides me along the right paths for his name's sake."</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#32. Memory: Phil 4:13 & Rom 6:23</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Memorize & recite both verses word-for-word.</div>
+      <div class="answer-box"><strong>Verses:</strong> "I can do all this through him who gives me strength." (Phil 4:13) & "For the wages of sin is death, but the gift of God is eternal life in Christ Jesus our Lord." (Rom 6:23)</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#33. Memory: Joshua 1:9 + 20 Push-Ups</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">20 clean push-ups while teammate recites Joshua 1:9.</div>
+      <div class="answer-box"><strong>Verse:</strong> "Have I not commanded you? Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go."</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#34. Memory: Romans 8:28</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Memorize & recite Romans 8:28 from memory.</div>
+      <div class="answer-box"><strong>Verse:</strong> "And we know that in all things God works for the good of those who love him, who have been called according to his purpose." (Romans 8:28).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#35. All 9 Fruits Of Spirit</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Recite all 9 fruits of the Spirit without looking.</div>
+      <div class="answer-box"><strong>Key:</strong> Love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control (Gal 5).</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#36. Six Tribes Of Israel</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Name any 6 of the 12 tribes/sons of Israel.</div>
+      <div class="answer-box"><strong>Key:</strong> Reuben, Simeon, Levi, Judah, Dan, Naphtali, Gad, Asher, Issachar, Zebulun, Joseph, Benjamin.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#37. Four OT "J" Books</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Name 4 Old Testament books starting with J.</div>
+      <div class="answer-box"><strong>Key:</strong> Any 4 of: Joshua, Judges, Job, Jeremiah, Joel, Jonah.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#38. Seven Disciples In 15s</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Name 7 disciples in under 15 seconds.</div>
+      <div class="answer-box"><strong>Key:</strong> Peter, Andrew, James, John, Philip, Thomas, Matthew, Bartholomew, Simon, Judas, Thaddaeus.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#39. Days Of Creation</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Name what God made on Days 1 through 6.</div>
+      <div class="answer-box"><strong>Key:</strong> 1: Light; 2: Sky/waters; 3: Land/plants; 4: Sun/moon/stars; 5: Fish/birds; 6: Animals/humans.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#40. Five Plagues Of Egypt</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Name any 5 of the 10 Egyptian plagues.</div>
+      <div class="answer-box"><strong>Key:</strong> Blood, frogs, gnats, flies, livestock, boils, hail, locusts, darkness, firstborn.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#41. Double 500 mL Flip</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">2 teammates flip 500 mL bottles & land both upright!</div>
+      <div class="criteria-box"><strong>Pass:</strong> Both bottles land upright on same throw. 4 tries.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#42. Blindfolded Navigation</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Teammate verbally guides blindfolded player to chip.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Voice only. Pick up chip in &lt;45s from 8ft away.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#43. Wall Bounce Cup Catch</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Bounce ball off floor, off wall, catch in cup.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Ball caught inside cup cleanly. 3 tries.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#44. Index Card Tower</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">Build 2-story tower with 6 cards that stands 5s.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Stands untouched for 5s count. 60s build limit.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#45. Memory Chain Speed Run</span>
+        <span class="chip-tag tag-t3">+6 CHIPS</span>
+      </div>
+      <div class="task-text">3 teammates alternate books: Matt to Galatians.</div>
+      <div class="answer-box"><strong>Key:</strong> Matthew, Mark, Luke, John, Acts, Romans, 1 Cor, 2 Cor, Galatians.</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Giant Challenge Bank &bull; Judge Reference Sheet</span>
+    <span>Page 3 of 4 &bull; Tier 3 (31-45)</span>
+  </div>
+</div>
+
+<!-- PAGE 4: Tier 4 (Creative) & Memory Slips Sheet -->
+<div class="page">
+  <div class="header">
+    <div>
+      <h1>Giant Challenge Bank &bull; Tier 4 & Memory Slips</h1>
+      <p>High Energy Spirit Challenges &bull; Printable Scripture Study Cards</p>
+    </div>
+    <div style="background: #f59e0b; color: #78350f; padding: 4px 10px; border-radius: 5px; font-weight: 800; font-size: 8pt;">
+      TIER 4 &bull; +5 CHIPS
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#46. 30s Boat Commercial</span>
+        <span class="chip-tag tag-t4">+5 CHIPS</span>
+      </div>
+      <div class="task-text">Deliver dramatic TV commercial pitch for your boat!</div>
+      <div class="criteria-box"><strong>Pass:</strong> Slogan, loud energy, hand gestures. 30s.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#47. Team Cheer & Anthem</span>
+        <span class="chip-tag tag-t4">+5 CHIPS</span>
+      </div>
+      <div class="task-text">Perform 4-line rhyming team cheer with claps/stomps.</div>
+      <div class="criteria-box"><strong>Pass:</strong> At least 3 members chanting in sync.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#48. Helper Portrait Sketch</span>
+        <span class="chip-tag tag-t4">+5 CHIPS</span>
+      </div>
+      <div class="task-text">Draw funny portrait of a helper or camp director.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Show helper. Helper laughs and approves!</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#49. The Robot Boat Dance</span>
+        <span class="chip-tag tag-t4">+5 CHIPS</span>
+      </div>
+      <div class="task-text">2 teammates robot dance with engine noises for 20s.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Total commitment to mechanical moves.</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#50. Ocean Storm Statue</span>
+        <span class="chip-tag tag-t4">+5 CHIPS</span>
+      </div>
+      <div class="task-text">4 teammates pose as ship crew in storm & hold 15s.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Zero giggles or movement for full 15 count!</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#51. The Pirate Prayer</span>
+        <span class="chip-tag tag-t4">+5 CHIPS</span>
+      </div>
+      <div class="task-text">Recite sincere 3-sentence prayer in pirate voice.</div>
+      <div class="criteria-box"><strong>Pass:</strong> "Ahoy Lord...", full accent through "Amen, matey!"</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#52. Animal Symphony</span>
+        <span class="chip-tag tag-t4">+5 CHIPS</span>
+      </div>
+      <div class="task-text">3 teammates sing worship chorus using animal sounds.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Barks, moos, or quacks in tune for 15s!</div>
+    </div>
+
+    <div class="challenge-card">
+      <div class="card-top">
+        <span class="challenge-title">#53. Secret Handshake</span>
+        <span class="chip-tag tag-t4">+5 CHIPS</span>
+      </div>
+      <div class="task-text">Teach judge a 6-move secret handshake and do it.</div>
+      <div class="criteria-box"><strong>Pass:</strong> Must include 2 snaps, fist bump, elbow tap.</div>
+    </div>
+  </div>
+
+  <!-- SCRIPTURE MEMORY SLIPS QUICK-HANDOUT TABLE -->
+  <div style="background: #f0fdf4; border: 1.5px solid #22c55e; border-radius: 6px; padding: 6px 10px; margin-top: 4px;">
+    <div style="font-weight: 800; color: #166534; font-size: 8.5pt; text-transform: uppercase; margin-bottom: 4px; display: flex; justify-content: space-between;">
+      <span>Scripture Memory Bank &bull; Verses To Hand Out To Campers</span>
+      <span style="font-size: 7.5pt; color: #15803d;">Campers study at their table then recite</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; font-size: 7.2pt; color: #14532d; line-height: 1.25;">
+      <div style="background: #ffffff; border: 1px dashed #86efac; padding: 4px 6px; border-radius: 4px;">
+        <strong>[T1 &bull; 2 Chips] 1 John 4:19:</strong> "We love because he first loved us."
+      </div>
+      <div style="background: #ffffff; border: 1px dashed #86efac; padding: 4px 6px; border-radius: 4px;">
+        <strong>[T1 &bull; 2 Chips] John 11:35:</strong> "Jesus wept."
+      </div>
+      <div style="background: #ffffff; border: 1px dashed #93c5fd; padding: 4px 6px; border-radius: 4px;">
+        <strong>[T2 &bull; 4 Chips] Genesis 1:1:</strong> "In the beginning God created the heavens and the earth."
+      </div>
+      <div style="background: #ffffff; border: 1px dashed #93c5fd; padding: 4px 6px; border-radius: 4px;">
+        <strong>[T2 &bull; 4 Chips] Psalm 119:105:</strong> "Your word is a lamp for my feet, a light on my path."
+      </div>
+      <div style="background: #ffffff; border: 1px dashed #93c5fd; padding: 4px 6px; border-radius: 4px;">
+        <strong>[T2 &bull; 4 Chips] Proverbs 3:5:</strong> "Trust in the Lord with all your heart and lean not on your own understanding."
+      </div>
+      <div style="background: #ffffff; border: 1px dashed #93c5fd; padding: 4px 6px; border-radius: 4px;">
+        <strong>[T2 &bull; 4 Chips] John 3:16:</strong> "For God so loved the world that he gave his one and only Son..."
+      </div>
+      <div style="background: #ffffff; border: 1px dashed #fca5a5; padding: 4px 6px; border-radius: 4px;">
+        <strong>[T3 &bull; 6 Chips] Joshua 1:9:</strong> "Be strong and courageous. Do not be afraid; do not be discouraged..."
+      </div>
+      <div style="background: #ffffff; border: 1px dashed #fca5a5; padding: 4px 6px; border-radius: 4px;">
+        <strong>[T3 &bull; 6 Chips] Romans 8:28:</strong> "In all things God works for the good of those who love him..."
+      </div>
+      <div style="background: #ffffff; border: 1px dashed #fca5a5; padding: 4px 6px; border-radius: 4px; grid-column: span 2;">
+        <strong>[T3 &bull; 6 Chips] Psalm 23:1-3:</strong> "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters, he refreshes my soul. He guides me along the right paths for his name's sake."
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Giant Challenge Bank &bull; Judge Reference Sheet</span>
+    <span>Page 4 of 4 &bull; Tier 4 (46-53) & Scripture Memory Bank</span>
+  </div>
+</div>
+
+</body>
+</html>
