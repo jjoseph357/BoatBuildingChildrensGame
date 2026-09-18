@@ -6,11 +6,6 @@ Print this document for the helper running the materials store. Tape pages 1 and
 
 ## Printable shop menu (Post this facing the campers)
 
-### Free starter kit (Given to each team at start)
-- 20 poker chips (team treasury)
-- 1 pair of safety scissors (loaned, return at the end of the game)
-- 1 challenge punch card
-- 1 scratch sheet of paper and pencil for boat sketching
 
 ### Hull materials
 | Item | Cost | Unit | Notes |
